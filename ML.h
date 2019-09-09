@@ -1,7 +1,11 @@
-﻿#include <stdio.h>
+﻿
+#ifndef _C_MACHINE_LEARNING_
+#define _C_MACHINE_LEARNING_
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <math.h>
+#include <time.h>
 
 
 struct node
@@ -40,3 +44,4 @@ double activation(double a);
 double psudoRand();
 
 void printNode(struct node n);
+#endif

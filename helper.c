@@ -12,8 +12,7 @@ double activation(double a)
 }
 
 ///Psudorandom function
-double key = 0.1692835612897695;
-double psudoRand()
+double psudoRand(double key)
 {
     key = (sin(key * 5000) + cos(key * 10000) + sin (key * 6000) + cos(key * 12000)) / 4;
     return key;

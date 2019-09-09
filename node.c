@@ -23,10 +23,13 @@ ML_STATUS initalizeNode(struct node *n, int inputs)
     n->bpweights = malloc(sizeof(double) * inputs);
     if(n->bpweights == NULL)
         return MLSTATUS_MALLOC_FAIL;
+    time_t temptime;
+    time(&temptime);
+    double key = (double) temptime;
     for(int i = 0; i < inputs; i++)
     {
         n->inputs[i] = 1;
-        n->weights[i] = psudoRand();     //DEBUG: Not sure correct macro name. double check
+        n->weights[i] = psudoRand(&key);     //DEBUG: Not sure correct macro name. double check
         n->bpweights[i] = 0;
     }
     //bias is set as an extra input with constant value 1;
