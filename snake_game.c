@@ -34,7 +34,31 @@ static int parseBoardState(boardState *state)
     }
 }
 
-static int initalizeBoard(boardState *state, int width, int height, int enemies)
+int copyState(boardState master, boardState *copy)
+{
+    //copy all of the icky dicky big board shit.
+    for(int x = 0; x < master.width; x++)
+    {
+        for(int y =0 ; y < master.height; y++)
+        {
+            copy->player[x][y]      = master.player[x][y];
+            copy->playerPrev[x][y]  = master.playerPrev[x][y];
+            copy->enemy[x][y]       = 
+        }
+    }
+}
+
+int movePlayer(boardState state, boardState *newState, SNAKE_DIRECTION direction)
+{
+    //TODO
+}
+
+
+///////////////////////////////////////////////////////////////
+////////////////////  Public  /////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+int initalizeBoard(boardState *state, int width, int height, int enemies)
 {
     //allocate all arrays.
     //allocates width * height * 5 * 2 bytes.
@@ -72,5 +96,4 @@ static int initalizeBoard(boardState *state, int width, int height, int enemies)
     state->enemyHeadX = malloc(sizeof(int) * enemies);
     state->enemyHeadY = malloc(sizeof(int) * enemies);
     state->food[random() % width][random() % height] = 1;
-
 }

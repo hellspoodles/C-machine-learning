@@ -23,6 +23,13 @@ typedef struct __boardState{
     int foodY;
 }boardState;
 
-int getGameState(int **player, int **playerPrev, int **enemy, int **enemyPrev, int **food);
+typedef enum __SNAKE_DIRECTION{
+    SNAKE_DIR_UP    = 0,
+    SNAKE_DIR_LEFT  = 1,
+    SNAKE_DIR_RIGHT = 2,
+    SNAKE_DIR_DOWN  = 3
+}SNAKE_DIRECTION;
+
+static int initalizeBoard(boardState *state, int width, int height, int enemies);
 
 #endif
